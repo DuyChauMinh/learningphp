@@ -1,30 +1,15 @@
 <?php
-if (isset($_POST['submit'])) {
-    // echo 'sdfgsdgdsgdf';
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    // if ($username && $password) {
-    //     echo $username . ' ' . $password;
-    // } else {
-    //     echo 'nothing here';
-    // }
+include 'db.php';
 
-    $connection = mysqli_connect('localhost', 'root', '', 'learningphp');
-    if ($connection) {
-        echo 'connected';
-    } else {
-        die('not connected');
-    }
+$query = 'SELECT * FROM users';
 
-    $query = "INSERT INTO users(username,password) VALUES('$username','$password')";
+$result = mysqli_query($connection, $query);
 
-    $result = mysqli_query($connection, $query);
-
-    if (!$result) {
-        die('Query failed' . mysqli_error());
-    }
-} ?>
+if (!$result) {
+    die('Query failed' . mysqli_error());
+}
+?>
 
 
 
@@ -38,7 +23,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container">
         <div class="col-xs-6">
-            <form action="login_create.php" method="post">
+            <form action="login_update.php" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" class="form-control">
@@ -48,7 +33,14 @@ if (isset($_POST['submit'])) {
                     <input type="password" name="password" class="form-control">
                 </div>
 
-                <input class="btn btn-primary" type="submit" name="submit" value="submit">
+                <div class="form-group">
+                    <select name="id" id="">
+                        <option value="">1</option>
+                    </select>
+                </div>
+
+
+                <input class="btn btn-primary" type="submit" name="submit" value="update">
 
             </form>
         </div>
