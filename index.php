@@ -1,2 +1,2 @@
-<?php echo __LINE__;
+<?php echo phpversion();
 ?>
