@@ -7,7 +7,7 @@ $query = 'SELECT * FROM users';
 $result = mysqli_query($connection, $query);
 
 if (!$result) {
-    die('Query failed' . mysqli_error());
+    die('Query failed' . mysqli_error($connection));
 }
 ?>
 
@@ -24,10 +24,12 @@ if (!$result) {
     <div class="container">
 <!-- mysqli_fetch_assoc or mysqli_fetch_row  -->
         <div class="col-xs-6">
+        <h1 class="text-center">READ</h1>
+
 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
     <pre>
     <?php print_r($row);} ?>
-</pre>
+    </pre>
         </div>
     </div>
 </body>

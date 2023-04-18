@@ -1,30 +1,8 @@
 <?php
-if (isset($_POST['submit'])) {
-    // echo 'sdfgsdgdsgdf';
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // if ($username && $password) {
-    //     echo $username . ' ' . $password;
-    // } else {
-    //     echo 'nothing here';
-    // }
-
-    $connection = mysqli_connect('localhost', 'root', '', 'learningphp');
-    if ($connection) {
-        echo 'connected';
-    } else {
-        die('not connected');
-    }
-
-    $query = "INSERT INTO users(username,password) VALUES('$username','$password')";
-
-    $result = mysqli_query($connection, $query);
-
-    if (!$result) {
-        die('Query failed' . mysqli_error());
-    }
-} ?>
+include 'db.php';
+include 'functions.php';
+createUsers();
+?>
 
 
 
@@ -38,6 +16,8 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container">
         <div class="col-xs-6">
+        <h1 class="text-center">CREATE</h1>
+
             <form action="login_create.php" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -48,7 +28,7 @@ if (isset($_POST['submit'])) {
                     <input type="password" name="password" class="form-control">
                 </div>
 
-                <input class="btn btn-primary" type="submit" name="submit" value="submit">
+                <input class="btn btn-primary" type="submit" name="submit" value="create">
 
             </form>
         </div>
