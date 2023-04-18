@@ -7,13 +7,8 @@ createUsers();
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
+<?php include 'includes/header.php'; ?>
+
     <div class="container">
         <div class="col-xs-6">
         <h1 class="text-center">CREATE</h1>
@@ -32,6 +27,4 @@ createUsers();
 
             </form>
         </div>
-    </div>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>
